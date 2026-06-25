@@ -1,6 +1,7 @@
 import { betterAuth } from "better-auth";
 import { drizzleAdapter } from "better-auth/adapters/drizzle";
 import { db, schema } from "@/db";
+import { username } from "better-auth/plugins/username";
 
 export const auth = betterAuth({
   database: drizzleAdapter(db, {
@@ -12,6 +13,7 @@ export const auth = betterAuth({
       verification: schema.verification,
     },
   }),
+  plugins: [username()],
   user: {
     additionalFields: {
       tenantId: {
@@ -23,8 +25,5 @@ export const auth = betterAuth({
   emailAndPassword: {
     enabled: true,
     autoSignIn: true,
-  },
-  username: {
-    enabled: true,
   },
 });
