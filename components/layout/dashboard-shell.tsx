@@ -8,7 +8,7 @@ import { CommandPalette } from "@/components/layout/command-palette";
 
 export default function DashboardShell({ children }: { children: React.ReactNode }) {
   const { data: session, isPending } = useSession();
-  const [sidebarOpen, setSidebarOpen] = useState(false); // always closed on mobile by default
+  const [sidebarOpen, setSidebarOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
 
   if (isPending) {
